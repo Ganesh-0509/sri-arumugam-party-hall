@@ -23,7 +23,7 @@ export default function VenueSection() {
           className="aspect-[4/5] lg:aspect-[3/4]"
         >
           <Photo
-            stockKey="venue-elephant-hallway"
+            stockKey="venue-entrance-wide"
             tone="ivory"
             alt="Entrance hallway of Sri Arumugam Party Hall with its twin elephant mural"
             className="h-full w-full"

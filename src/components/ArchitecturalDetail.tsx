@@ -3,9 +3,9 @@ import Photo from "./Photo"
 import SectionHeading from "./SectionHeading"
 
 const details = [
-  { tone: "brass", stockKey: "detail-brass-lamp", alt: "Traditional oil lamps, the kind used at Sri Arumugam Party Hall celebrations" },
-  { tone: "maroon", stockKey: "detail-kolam", alt: "A kolam pattern, the traditional floor art seen at South Indian celebrations" },
-  { tone: "charcoal", stockKey: "detail-floral", alt: "Marigold flowers, a traditional decoration at South Indian celebrations" },
+  { tone: "brass", stockKey: "decor-peacock-lamp-b", alt: "A peacock brass lamp decorated with jasmine and roses at Sri Arumugam Party Hall" },
+  { tone: "maroon", stockKey: "decor-kolam", alt: "A kolam laid at Sri Arumugam Party Hall for a celebration" },
+  { tone: "charcoal", stockKey: "decor-ganesha", alt: "A decorated Ganesha idol with flowers and incense at Sri Arumugam Party Hall" },
 ] as const
 
 export default function ArchitecturalDetail() {

@@ -10,7 +10,7 @@ export const eventTypes: EventType[] = [
     key: "wedding",
     label: "Weddings",
     line: "Celebrate the beginning of something beautiful.",
-    photo: "venue-elephant-hallway",
+    photo: "venue-kolam-welcome",
   },
   {
     key: "reception",
@@ -22,25 +22,25 @@ export const eventTypes: EventType[] = [
     key: "birthday",
     label: "Birthdays",
     line: "Make another year feel like a milestone.",
-    photo: "",
+    photo: "decor-balloons",
   },
   {
     key: "family",
     label: "Family Celebrations",
     line: "Because the best memories are made together.",
-    photo: "celebration-family",
+    photo: "people-grandma-girls",
   },
   {
     key: "engagement",
     label: "Engagements",
     line: "A beautiful beginning deserves a beautiful gathering.",
-    photo: "decor-engagement-flowers",
+    photo: "decor-peacock-lamp-a",
   },
   {
     key: "other",
     label: "Special Occasions",
     line: "For the moments that don't need a reason.",
-    photo: "decor-evening-lighting",
+    photo: "people-girls-duo-a",
   },
 ]
 

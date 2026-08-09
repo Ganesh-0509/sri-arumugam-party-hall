@@ -9,20 +9,14 @@ export default function Hero() {
     <section id="top" className="relative flex min-h-[100vh] items-center overflow-hidden bg-charcoal">
       <div className="absolute inset-0 overflow-hidden">
         <div className="animate-slow-drift absolute inset-0">
-          {/* Source photo is low-resolution (a compressed Google Maps listing
-              photo, confirmed by re-extracting at ~3x the resolution and still
-              seeing block artifacts) — a soft blur reads as an intentional
-              cinematic depth-of-field treatment instead of visible pixelation
-              when stretched across a full-viewport hero. Swap for a real
-              high-res client photo and drop this blur once one exists. */}
           <Photo
             stockKey="hero-elephant"
             tone="charcoal"
             alt="The twin-elephant mural at the entrance of Sri Arumugam Party Hall, Ponniammanmedu, Chennai"
-            className="h-full w-full blur-[3px] scale-105"
+            className="h-full w-full"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/65 to-charcoal/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/35" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 pt-24 pb-14 sm:pb-16">

@@ -27,7 +27,7 @@ export default function EventCategories() {
                 <Photo
                   stockKey={event.photo || undefined}
                   tone={TONES[i % TONES.length]}
-                  alt={event.photo ? `${event.label} celebration styling` : `${event.label} at Sri Arumugam Party Hall`}
+                  alt={`${event.label} at Sri Arumugam Party Hall`}
                   className="h-full w-full"
                 />
               </div>
