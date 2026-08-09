@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ivory: #f7efe0;
+  --color-ivory-soft: #f0e6d0;
+  --color-charcoal: #221d1a;
+  --color-maroon: #841f30;
+  --color-maroon-deep: #59121e;
+  --color-maroon-bright: #a52a3d;
+  --color-brass: #d6a72b;
+  --color-brass-soft: #f0c460;
+  --color-brass-deep: #a67816;
+  --color-leaf: #576339;
+  --color-terracotta: #b95e3d;
+
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-maroon);
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+/* Warm dot-grid texture for light sections — keeps ivory from reading as flat/blank white. */
+.bg-warm-texture {
+  background-image: radial-gradient(circle, rgba(132, 31, 48, 0.09) 1px, transparent 1.3px);
+  background-size: 26px 26px;
+}
+.bg-warm-texture-dark {
+  background-image: radial-gradient(circle, rgba(214, 167, 43, 0.08) 1px, transparent 1.3px);
+  background-size: 26px 26px;
+}
+
+@keyframes slow-drift {
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1.02) translate(0, 0);
+  }
+}
+.animate-slow-drift {
+  animation: slow-drift 24s ease-in-out infinite;
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-slow-spin {
+  animation: slow-spin 60s linear infinite;
+}
