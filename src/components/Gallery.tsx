@@ -5,11 +5,14 @@ import Photo from "./Photo"
 import SectionHeading from "./SectionHeading"
 import { galleryImages, galleryFilters, type GalleryCategory } from "../data/gallery"
 
-const SPAN: Record<string, string> = {
-  wide: "sm:col-span-2 aspect-[16/9]",
-  landscape: "sm:col-span-2 aspect-[3/2]",
-  portrait: "aspect-[3/4]",
-  square: "aspect-square",
+// True bento footprints — explicit row+col spans on a fixed row-height grid,
+// not per-item aspect-ratio (which was producing uneven, misaligned rows).
+// grid-flow-dense backfills gaps automatically so sequencing doesn't matter.
+const CELL: Record<string, string> = {
+  big: "col-span-2 row-span-2",
+  wide: "col-span-2 row-span-1",
+  tall: "col-span-1 row-span-2",
+  normal: "col-span-1 row-span-1",
 }
 
 export default function Gallery() {
@@ -52,7 +55,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <div className="mt-10 grid grid-flow-dense grid-cols-2 auto-rows-[150px] gap-3 sm:grid-cols-4 sm:auto-rows-[170px] sm:gap-4">
           {filtered.map((img, i) => (
             <motion.button
               key={img.id}
@@ -61,7 +64,7 @@ export default function Gallery() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               onClick={() => setLightboxIndex(i)}
-              className={`group relative overflow-hidden text-left ${SPAN[img.size]}`}
+              className={`group relative overflow-hidden text-left ${CELL[img.cell]}`}
             >
               <div className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]">
                 <Photo stockKey={img.stockKey} tone={img.tone} alt={img.alt} className="h-full w-full" />
