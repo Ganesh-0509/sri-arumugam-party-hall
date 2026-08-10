@@ -56,7 +56,7 @@ export default function DateEnquiry() {
 
   if (submitted) {
     return (
-      <section id="enquire" className="bg-ivory py-20 sm:py-24">
+      <section id="enquire" className="bg-sandal py-20 sm:py-24">
         <div className="mx-auto max-w-lg px-5 sm:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h2 className="font-serif text-5xl text-charcoal">We&apos;ve got your request.</h2>
@@ -88,7 +88,7 @@ export default function DateEnquiry() {
   }
 
   return (
-    <section id="enquire" className="bg-warm-texture bg-ivory py-20 sm:py-24">
+    <section id="enquire" className="bg-warm-texture-sandal bg-sandal py-20 sm:py-24">
       <div className="relative mx-auto max-w-2xl px-5 sm:px-8">
         <SectionHeading align="center" eyebrow="Enquire" lines={["Planning something", "special?"]} />
 
@@ -182,7 +182,7 @@ export default function DateEnquiry() {
 
 function inputClass(hasError: boolean) {
   return `w-full border-b-2 bg-transparent px-0.5 py-3 text-base text-charcoal outline-none transition-colors focus:border-maroon ${
-    hasError ? "border-terracotta" : "border-charcoal/25"
+    hasError ? "border-maroon-bright" : "border-charcoal/25"
   }`
 }
 
@@ -207,7 +207,7 @@ function Field({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="mt-1.5 block text-sm font-medium text-terracotta"
+            className="mt-1.5 block text-sm font-medium text-maroon-bright"
           >
             {error}
           </motion.span>

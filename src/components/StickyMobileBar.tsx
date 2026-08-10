@@ -31,7 +31,7 @@ export default function StickyMobileBar() {
             href={buildWhatsAppUrl(`Hi ${venue.name}, I'd like to enquire about hosting an event.`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-1 border-x border-charcoal/10 py-3 text-leaf"
+            className="flex flex-col items-center gap-1 border-x border-charcoal/10 py-3 text-brass-deep"
           >
             <MessageCircle size={18} />
             <span className="text-[11px] font-medium">WhatsApp</span>

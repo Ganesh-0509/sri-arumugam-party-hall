@@ -5,7 +5,7 @@
   --font-sans: "Inter", "Manrope", ui-sans-serif, system-ui, sans-serif;
 
   --color-ivory: #f7efe0;
-  --color-ivory-soft: #f0e6d0;
+  --color-sandal: #e8d4ab;
   --color-charcoal: #221d1a;
   --color-maroon: #841f30;
   --color-maroon-deep: #59121e;
@@ -13,8 +13,6 @@
   --color-brass: #d6a72b;
   --color-brass-soft: #f0c460;
   --color-brass-deep: #a67816;
-  --color-leaf: #576339;
-  --color-terracotta: #b95e3d;
 
   --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 
@@ -77,6 +75,10 @@ body {
 }
 .bg-warm-texture-dark {
   background-image: radial-gradient(circle, rgba(214, 167, 43, 0.08) 1px, transparent 1.3px);
+  background-size: 26px 26px;
+}
+.bg-warm-texture-sandal {
+  background-image: radial-gradient(circle, rgba(132, 31, 48, 0.13) 1px, transparent 1.3px);
   background-size: 26px 26px;
 }
 

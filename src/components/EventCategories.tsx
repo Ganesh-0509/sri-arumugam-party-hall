@@ -8,7 +8,7 @@ const TONES = ["ivory", "maroon", "brass", "charcoal"] as const
 
 export default function EventCategories() {
   return (
-    <section id="celebrations" className="bg-warm-texture bg-ivory py-20 sm:py-24">
+    <section id="celebrations" className="bg-warm-texture-sandal bg-sandal py-20 sm:py-24">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading eyebrow="Celebrate Your Way" lines={["Every occasion has", "its own story."]} />
 
