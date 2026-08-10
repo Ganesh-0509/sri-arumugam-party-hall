@@ -21,7 +21,8 @@ export default function EventCategories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-              className="group relative block aspect-[4/5] overflow-hidden"
+              whileHover={{ y: -6 }}
+              className="group relative block aspect-[4/5] overflow-hidden rounded-sm shadow-none transition-shadow duration-500 ease-out hover:shadow-[0_30px_60px_-20px_rgba(89,18,30,0.5)]"
             >
               <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
                 <Photo

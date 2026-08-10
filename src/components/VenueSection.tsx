@@ -20,13 +20,14 @@ export default function VenueSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8 }}
-          className="aspect-[4/5] lg:aspect-[3/4]"
+          whileHover={{ y: -6 }}
+          className="group aspect-[4/5] overflow-hidden rounded-sm shadow-none transition-shadow duration-500 ease-out hover:shadow-[0_35px_70px_-25px_rgba(89,18,30,0.5)] lg:aspect-[3/4]"
         >
           <Photo
             stockKey="venue-entrance-wide"
             tone="ivory"
             alt="Entrance hallway of Sri Arumugam Party Hall with its twin elephant mural"
-            className="h-full w-full"
+            className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.06]"
           />
         </motion.div>
 

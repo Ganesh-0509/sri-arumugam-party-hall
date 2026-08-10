@@ -64,9 +64,10 @@ export default function Gallery() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               onClick={() => setLightboxIndex(i)}
-              className={`group relative overflow-hidden text-left ${CELL[img.cell]}`}
+              whileHover={{ y: -4 }}
+              className={`group relative overflow-hidden rounded-sm text-left shadow-none transition-shadow duration-500 ease-out hover:shadow-[0_25px_55px_-20px_rgba(89,18,30,0.5)] ${CELL[img.cell]}`}
             >
-              <div className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]">
+              <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.07]">
                 <Photo stockKey={img.stockKey} tone={img.tone} alt={img.alt} className="h-full w-full" />
               </div>
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/80 to-transparent px-3 py-2.5 text-sm font-medium text-ivory opacity-0 transition-opacity group-hover:opacity-100">

@@ -56,9 +56,14 @@ export default function DateEnquiry() {
 
   if (submitted) {
     return (
-      <section id="enquire" className="bg-sandal py-20 sm:py-24">
-        <div className="mx-auto max-w-lg px-5 sm:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+      <section id="enquire" className="bg-warm-texture-sandal bg-sandal py-20 sm:py-24">
+        <div className="mx-auto max-w-lg px-5 sm:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl bg-ivory p-9 text-center shadow-[0_45px_100px_-30px_rgba(89,18,30,0.5)] ring-1 ring-charcoal/5 sm:p-12"
+          >
             <h2 className="font-serif text-5xl text-charcoal">We&apos;ve got your request.</h2>
             <p className="mt-5 text-lg leading-relaxed text-charcoal/80">
               Thank you, {form.name.split(" ")[0]}. The {venue.name} team will get back to you shortly to
@@ -92,7 +97,16 @@ export default function DateEnquiry() {
       <div className="relative mx-auto max-w-2xl px-5 sm:px-8">
         <SectionHeading align="center" eyebrow="Enquire" lines={["Planning something", "special?"]} />
 
-        <form onSubmit={handleSubmit} noValidate className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <motion.div
+          initial={{ opacity: 0, y: 48, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mt-12 overflow-hidden rounded-3xl bg-ivory p-7 shadow-[0_50px_110px_-35px_rgba(89,18,30,0.55)] ring-1 ring-charcoal/5 sm:p-11"
+        >
+          <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brass via-brass-soft to-maroon" />
+
+          <form onSubmit={handleSubmit} noValidate className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <Field label="Event type" error={errors.eventType} full>
             <select
               value={form.eventType}
@@ -168,13 +182,14 @@ export default function DateEnquiry() {
           </div>
         </form>
 
-        <div className="mt-8 flex items-center justify-center gap-2 text-base text-charcoal/70">
-          <MessageCircle size={16} />
-          Prefer to talk directly? Call or WhatsApp{" "}
-          <a href={buildTelUrl()} className="font-semibold text-maroon underline underline-offset-4">
-            {venue.phone}
-          </a>
-        </div>
+          <div className="mt-8 flex items-center justify-center gap-2 text-base text-charcoal/70">
+            <MessageCircle size={16} />
+            Prefer to talk directly? Call or WhatsApp{" "}
+            <a href={buildTelUrl()} className="font-semibold text-maroon underline underline-offset-4">
+              {venue.phone}
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

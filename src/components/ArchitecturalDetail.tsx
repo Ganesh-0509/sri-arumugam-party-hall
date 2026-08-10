@@ -32,13 +32,14 @@ export default function ArchitecturalDetail() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="aspect-square overflow-hidden"
+              whileHover={{ y: -6 }}
+              className="group aspect-square overflow-hidden rounded-sm ring-1 ring-brass/0 transition-all duration-500 ease-out hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] hover:ring-brass/40"
             >
               <Photo
                 stockKey={d.stockKey}
                 tone={d.tone}
                 alt={d.alt}
-                className="h-full w-full transition-transform duration-700 ease-out hover:scale-110"
+                className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-110"
               />
             </motion.div>
           ))}
