@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import logo from "../assets/real/instagram-profile-pic.jpg"
 import { venue } from "../data/venue"
 
@@ -12,7 +13,13 @@ const LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-charcoal py-14">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto max-w-7xl px-5 sm:px-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between"
+      >
         <div className="flex items-center gap-3">
           <img src={logo} alt="Sri Arumugam Party Hall logo" className="h-10 w-10 rounded-full object-cover" />
           <div>
@@ -44,7 +51,7 @@ export default function Footer() {
             Instagram
           </a>
         </div>
-      </div>
+      </motion.div>
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 mt-10 pt-6 border-t border-ivory/10">
         <p className="text-xs text-ivory/40">© {new Date().getFullYear()} {venue.name}</p>

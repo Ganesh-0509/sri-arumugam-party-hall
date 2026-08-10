@@ -31,12 +31,3 @@ export const experienceFeatures: ExperienceFeature[] = [
     text: "Centrally located in Ponniammanmedu, simple for guests coming from across Chennai.",
   },
 ]
-
-export const timelineSteps = [
-  { step: "01", title: "Choose your date", text: "Reach out with the date you have in mind." },
-  { step: "02", title: "Tell us about your occasion", text: "Share what you're celebrating and how many guests to expect." },
-  { step: "03", title: "Plan your setup", text: "We'll talk through layout and decoration direction together." },
-  { step: "04", title: "Prepare the space", text: "The hall is set up and ready ahead of your arrival." },
-  { step: "05", title: "Welcome your guests", text: "Your family and friends arrive to a space that's ready for them." },
-  { step: "06", title: "Celebrate", text: "The moment you planned for, shared with the people who matter." },
-]

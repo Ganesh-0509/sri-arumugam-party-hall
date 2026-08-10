@@ -5,7 +5,6 @@ import EventCategories from "./components/EventCategories"
 import VenueSection from "./components/VenueSection"
 import ExperienceGrid from "./components/ExperienceGrid"
 import EventPlanner from "./components/EventPlanner"
-import CelebrationTimeline from "./components/CelebrationTimeline"
 import ArchitecturalDetail from "./components/ArchitecturalDetail"
 import Gallery from "./components/Gallery"
 import TestimonialCTA from "./components/TestimonialCTA"
@@ -26,7 +25,6 @@ export default function App() {
         <VenueSection />
         <ExperienceGrid />
         <EventPlanner />
-        <CelebrationTimeline />
         <ArchitecturalDetail />
         <Gallery />
         <TestimonialCTA />
