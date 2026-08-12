@@ -26,7 +26,7 @@ export default function VenueSection() {
           <Photo
             stockKey="venue-entrance-wide"
             tone="ivory"
-            alt="Entrance hallway of Sri Arumugam Party Hall with its twin elephant mural"
+            alt="Entrance hallway of Sri Arumugam Mini Party Hall with its twin elephant mural"
             className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.06]"
           />
         </motion.div>
@@ -51,7 +51,7 @@ export default function VenueSection() {
                 ) : (
                   <button
                     onClick={() =>
-                      openWhatsApp("Hi Sri Arumugam Party Hall, could you share the venue facilities available?")
+                      openWhatsApp("Hi Sri Arumugam Mini Party Hall, could you share the venue facilities available?")
                     }
                     className="mt-2 text-base font-semibold text-maroon underline underline-offset-4 decoration-maroon/40 hover:decoration-maroon"
                   >

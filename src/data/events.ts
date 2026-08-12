@@ -3,6 +3,8 @@ export type EventType = {
   label: string
   line: string
   photo: string
+  /** True when `photo` is an illustrative stock image, not photographed at this venue. */
+  isStock?: boolean
 }
 
 export const eventTypes: EventType[] = [
@@ -10,7 +12,9 @@ export const eventTypes: EventType[] = [
     key: "wedding",
     label: "Weddings",
     line: "Celebrate the beginning of something beautiful.",
-    photo: "venue-kolam-welcome",
+    // Stock photo — illustrative only, not photographed at this venue.
+    photo: "wedding-mandap-arch",
+    isStock: true,
   },
   {
     key: "reception",

@@ -12,7 +12,7 @@ export default function Hero() {
           <Photo
             stockKey="hero-elephant"
             tone="charcoal"
-            alt="The twin-elephant mural at the entrance of Sri Arumugam Party Hall, Ponniammanmedu, Chennai"
+            alt="The twin-elephant mural at the entrance of Sri Arumugam Mini Party Hall, Ponniammanmedu, Chennai"
             className="h-full w-full"
           />
         </div>
@@ -26,7 +26,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.35 }}
           className="text-sm sm:text-base font-bold tracking-[0.25em] uppercase text-brass-soft mb-6"
         >
-          Sri Arumugam Party Hall · Chennai
+          Sri Arumugam Mini Party Hall · Chennai
         </motion.p>
 
         <motion.h1

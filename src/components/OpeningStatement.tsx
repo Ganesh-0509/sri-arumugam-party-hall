@@ -12,7 +12,7 @@ export default function OpeningStatement() {
         />
         <p className="mt-8 text-lg sm:text-xl leading-relaxed text-charcoal/85">
           Birthdays, engagements, family gatherings and all the little milestones in between.
-          Sri Arumugam Party Hall is designed around one simple idea — bringing people together.
+          Sri Arumugam Mini Party Hall is designed around one simple idea — bringing people together.
         </p>
 
         <svg

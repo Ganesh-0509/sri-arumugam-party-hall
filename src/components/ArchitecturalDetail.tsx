@@ -3,9 +3,10 @@ import Photo from "./Photo"
 import SectionHeading from "./SectionHeading"
 
 const details = [
-  { tone: "brass", stockKey: "decor-peacock-lamp-a", alt: "A peacock brass lamp decorated with jasmine and roses at Sri Arumugam Party Hall" },
-  { tone: "maroon", stockKey: "decor-kolam", alt: "A kolam laid at Sri Arumugam Party Hall for a celebration" },
-  { tone: "charcoal", stockKey: "decor-ganesha", alt: "A decorated Ganesha idol with flowers and incense at Sri Arumugam Party Hall" },
+  { tone: "brass", stockKey: "decor-peacock-lamp-a", alt: "A peacock brass lamp decorated with jasmine and roses at Sri Arumugam Mini Party Hall" },
+  // Stock photo — illustrative only, not photographed at this venue.
+  { tone: "maroon", stockKey: "decor-marigold-garland", alt: "A marigold garland decoration for a celebration" },
+  { tone: "charcoal", stockKey: "decor-ganesha", alt: "A decorated Ganesha idol with flowers and incense at Sri Arumugam Mini Party Hall" },
 ] as const
 
 export default function ArchitecturalDetail() {

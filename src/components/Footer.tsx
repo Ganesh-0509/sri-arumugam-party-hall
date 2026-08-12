@@ -21,7 +21,7 @@ export default function Footer() {
         className="mx-auto max-w-7xl px-5 sm:px-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between"
       >
         <div className="flex items-center gap-3">
-          <img src={logo} alt="Sri Arumugam Party Hall logo" className="h-10 w-10 rounded-full object-cover" />
+          <img src={logo} alt="Sri Arumugam Mini Party Hall logo" className="h-10 w-10 rounded-full object-cover" />
           <div>
             <p className="font-serif text-xl text-ivory">{venue.name}</p>
             <p className="text-sm text-ivory/60">

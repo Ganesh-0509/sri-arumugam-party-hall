@@ -89,7 +89,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.08, rotate: -4 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
               src={logo}
-              alt="Sri Arumugam Party Hall logo"
+              alt="Sri Arumugam Mini Party Hall logo"
               className="h-9 w-9 shrink-0 rounded-full object-cover"
             />
             <span

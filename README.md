@@ -1,4 +1,4 @@
-# Sri Arumugam Party Hall
+# Sri Arumugam Mini Party Hall
 
 Marketing website for **Sri Arumugam Mini Party Hall**, an A/C banquet hall in Ponniammanmedu,
 Chennai, built and maintained by [Fresh Frame](https://github.com/Ganesh-0509).

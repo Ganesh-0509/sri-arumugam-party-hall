@@ -2,7 +2,7 @@
 // UNCONFIRMED and sourced from their public Instagram bio — verify before go-live.
 
 export const venue = {
-  name: "Sri Arumugam Party Hall",
+  name: "Sri Arumugam Mini Party Hall",
   city: "Chennai",
   area: "Ponniammanmedu",
   addressLines: [
@@ -18,13 +18,13 @@ export const venue = {
   instagramHandle: "sriarumugampartyhall",
   instagramUrl: "https://www.instagram.com/sriarumugampartyhall/",
   mapsQuery:
-    "Sri Arumugam Party Hall, 44 VPC Nagar 2nd St, V P Singh Nagar, Ponniammanmedu, Chennai, Tamil Nadu 600110",
+    "Sri Arumugam Mini Party Hall, 44 VPC Nagar 2nd St, V P Singh Nagar, Ponniammanmedu, Chennai, Tamil Nadu 600110",
 } as const
 
 // Sourced from the venue's own Instagram bio (self-reported, not yet
 // client-confirmed in person). Shown softly on the site, not as a hard spec.
 export const venueClaims = {
-  guestCapacity: "50 guests",
+  guestCapacity: "50-60 guests",
   hallStyle: "Compact & photo-friendly",
   flooring: "Carpeted",
 } as const
