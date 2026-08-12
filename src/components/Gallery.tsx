@@ -3,51 +3,33 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import Photo from "./Photo"
 import SectionHeading from "./SectionHeading"
-import { galleryImages, galleryFilters, type GalleryCategory } from "../data/gallery"
+import { galleryImages } from "../data/gallery"
 
 export default function Gallery() {
-  const [filter, setFilter] = useState<"ALL" | GalleryCategory>("ALL")
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const [paused, setPaused] = useState(false)
 
-  const filtered = galleryImages.filter((img) => filter === "ALL" || img.category === filter)
-  // The track renders the filtered list twice back to back — animating exactly
+  // The track renders the image list twice back to back — animating exactly
   // one set-width (-50%) loops seamlessly with no visible reset.
-  const track = [...filtered, ...filtered]
+  const track = [...galleryImages, ...galleryImages]
 
   useEffect(() => {
     if (lightboxIndex === null) return
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") setLightboxIndex(null)
-      if (e.key === "ArrowRight") setLightboxIndex((i) => (i === null ? i : (i + 1) % filtered.length))
-      if (e.key === "ArrowLeft") setLightboxIndex((i) => (i === null ? i : (i - 1 + filtered.length) % filtered.length))
+      if (e.key === "ArrowRight") setLightboxIndex((i) => (i === null ? i : (i + 1) % galleryImages.length))
+      if (e.key === "ArrowLeft") setLightboxIndex((i) => (i === null ? i : (i - 1 + galleryImages.length) % galleryImages.length))
     }
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
-  }, [lightboxIndex, filtered.length])
+  }, [lightboxIndex])
 
-  const active = lightboxIndex !== null ? filtered[lightboxIndex] : null
+  const active = lightboxIndex !== null ? galleryImages[lightboxIndex] : null
 
   return (
     <section id="gallery" className="bg-warm-texture bg-ivory py-20 sm:py-24">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading eyebrow="The Gallery" lines={["Moments at", "Sri Arumugam."]} />
-
-        <div className="mt-10 flex flex-wrap gap-2.5">
-          {galleryFilters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={`rounded-full border-2 px-5 py-2.5 text-sm font-bold tracking-[0.08em] uppercase transition-colors ${
-                filter === f
-                  ? "border-maroon bg-maroon text-ivory"
-                  : "border-charcoal/25 text-charcoal/75 hover:border-maroon hover:text-maroon"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
       </div>
 
       {/* Full-bleed filmstrip: scrolls continuously right-to-left, pauses on
@@ -61,17 +43,16 @@ export default function Gallery() {
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-ivory to-transparent sm:w-28" />
 
         <div
-          key={filter}
           className="animate-marquee flex w-max gap-4 py-6 sm:gap-5"
           style={{
-            animationDuration: `${Math.max(filtered.length * 5, 20)}s`,
+            animationDuration: `${Math.max(galleryImages.length * 5, 20)}s`,
             animationPlayState: paused ? "paused" : "running",
           }}
         >
           {track.map((img, i) => (
             <button
               key={`${img.id}-${i}`}
-              onClick={() => setLightboxIndex(i % filtered.length)}
+              onClick={() => setLightboxIndex(i % galleryImages.length)}
               className="group relative z-0 h-[210px] w-[290px] shrink-0 overflow-hidden rounded-sm text-left shadow-md transition-[transform,box-shadow] duration-500 ease-out hover:z-20 hover:scale-[1.18] hover:shadow-[0_40px_80px_-25px_rgba(89,18,30,0.55)] sm:h-[300px] sm:w-[400px]"
             >
               <Photo stockKey={img.stockKey} tone={img.tone} alt={img.alt} className="h-full w-full" />
@@ -103,14 +84,14 @@ export default function Gallery() {
             </button>
             <button
               aria-label="Previous image"
-              onClick={() => setLightboxIndex((i) => (i === null ? i : (i - 1 + filtered.length) % filtered.length))}
+              onClick={() => setLightboxIndex((i) => (i === null ? i : (i - 1 + galleryImages.length) % galleryImages.length))}
               className="absolute left-3 sm:left-8 text-ivory/70 hover:text-ivory"
             >
               <ChevronLeft size={32} />
             </button>
             <button
               aria-label="Next image"
-              onClick={() => setLightboxIndex((i) => (i === null ? i : (i + 1) % filtered.length))}
+              onClick={() => setLightboxIndex((i) => (i === null ? i : (i + 1) % galleryImages.length))}
               className="absolute right-3 sm:right-8 text-ivory/70 hover:text-ivory"
             >
               <ChevronRight size={32} />
@@ -125,8 +106,8 @@ export default function Gallery() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.6}
               onDragEnd={(_, info) => {
-                if (info.offset.x < -60) setLightboxIndex((i) => (i === null ? i : (i + 1) % filtered.length))
-                else if (info.offset.x > 60) setLightboxIndex((i) => (i === null ? i : (i - 1 + filtered.length) % filtered.length))
+                if (info.offset.x < -60) setLightboxIndex((i) => (i === null ? i : (i + 1) % galleryImages.length))
+                else if (info.offset.x > 60) setLightboxIndex((i) => (i === null ? i : (i - 1 + galleryImages.length) % galleryImages.length))
               }}
             >
               <Photo stockKey={active.stockKey} tone={active.tone} alt={active.alt} className="aspect-[4/3] w-full" />
