@@ -5,21 +5,15 @@ import Photo from "./Photo"
 import SectionHeading from "./SectionHeading"
 import { galleryImages, galleryFilters, type GalleryCategory } from "../data/gallery"
 
-// True bento footprints — explicit row+col spans on a fixed row-height grid,
-// not per-item aspect-ratio (which was producing uneven, misaligned rows).
-// grid-flow-dense backfills gaps automatically so sequencing doesn't matter.
-const CELL: Record<string, string> = {
-  big: "col-span-2 row-span-2",
-  wide: "col-span-2 row-span-1",
-  tall: "col-span-1 row-span-2",
-  normal: "col-span-1 row-span-1",
-}
-
 export default function Gallery() {
   const [filter, setFilter] = useState<"ALL" | GalleryCategory>("ALL")
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [paused, setPaused] = useState(false)
 
   const filtered = galleryImages.filter((img) => filter === "ALL" || img.category === filter)
+  // The track renders the filtered list twice back to back — animating exactly
+  // one set-width (-50%) loops seamlessly with no visible reset.
+  const track = [...filtered, ...filtered]
 
   useEffect(() => {
     if (lightboxIndex === null) return
@@ -54,26 +48,37 @@ export default function Gallery() {
             </button>
           ))}
         </div>
+      </div>
 
-        <div className="mt-10 grid grid-flow-dense grid-cols-2 auto-rows-[150px] gap-3 sm:grid-cols-4 sm:auto-rows-[170px] sm:gap-4">
-          {filtered.map((img, i) => (
-            <motion.button
-              key={img.id}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              onClick={() => setLightboxIndex(i)}
-              whileHover={{ y: -4 }}
-              className={`group relative overflow-hidden rounded-sm text-left shadow-none transition-shadow duration-500 ease-out hover:shadow-[0_25px_55px_-20px_rgba(89,18,30,0.5)] ${CELL[img.cell]}`}
+      {/* Full-bleed filmstrip: scrolls continuously right-to-left, pauses on
+          hover, and the hovered photo itself pops forward above its neighbours. */}
+      <div
+        className="relative mt-10 overflow-hidden"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-ivory to-transparent sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-ivory to-transparent sm:w-28" />
+
+        <div
+          key={filter}
+          className="animate-marquee flex w-max gap-4 py-6 sm:gap-5"
+          style={{
+            animationDuration: `${Math.max(filtered.length * 5, 20)}s`,
+            animationPlayState: paused ? "paused" : "running",
+          }}
+        >
+          {track.map((img, i) => (
+            <button
+              key={`${img.id}-${i}`}
+              onClick={() => setLightboxIndex(i % filtered.length)}
+              className="group relative z-0 h-[210px] w-[290px] shrink-0 overflow-hidden rounded-sm text-left shadow-md transition-[transform,box-shadow] duration-500 ease-out hover:z-20 hover:scale-[1.18] hover:shadow-[0_40px_80px_-25px_rgba(89,18,30,0.55)] sm:h-[300px] sm:w-[400px]"
             >
-              <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.07]">
-                <Photo stockKey={img.stockKey} tone={img.tone} alt={img.alt} className="h-full w-full" />
-              </div>
-              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/80 to-transparent px-3 py-2.5 text-sm font-medium text-ivory opacity-0 transition-opacity group-hover:opacity-100">
+              <Photo stockKey={img.stockKey} tone={img.tone} alt={img.alt} className="h-full w-full" />
+              <span className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-charcoal/85 to-transparent px-4 py-3 text-sm font-medium text-ivory opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 {img.caption}
               </span>
-            </motion.button>
+            </button>
           ))}
         </div>
       </div>

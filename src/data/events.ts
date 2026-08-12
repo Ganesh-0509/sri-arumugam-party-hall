@@ -13,7 +13,7 @@ export const eventTypes: EventType[] = [
     label: "Weddings",
     line: "Celebrate the beginning of something beautiful.",
     // Stock photo — illustrative only, not photographed at this venue.
-    photo: "wedding-mandap-arch",
+    photo: "wedding-hall-indoor",
     isStock: true,
   },
   {

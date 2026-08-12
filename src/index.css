@@ -108,3 +108,19 @@ body {
 .animate-slow-spin {
   animation: slow-spin 60s linear infinite;
 }
+
+/* Gallery filmstrip: track holds the image list twice back-to-back, so sliding
+   exactly one set-width (-50%) loops seamlessly with no visible jump. */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation-name: marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
